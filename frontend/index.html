@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mestres e Seus Inventos - Copa do Mundo Tech</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <!-- Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sound Control -->
+    <button id="sound-toggle" class="sound-btn" aria-label="Alternar som">
+        <svg class="sound-icon-on" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor"
+                d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.85 14,18.71V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.77 16.5,12M3,9V15H7L12,20V4L7,9H3Z" />
+        </svg>
+        <svg class="sound-icon-off hidden" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor"
+                d="M12,4L9.91,6.09L12,8.18M4.27,3L3,4.27L7.73,9H3V15H7L12,20V13.27L16.25,17.5C15.58,18 14.83,18.4 14,18.71V20.77C15.38,20.44 16.63,19.78 17.7,18.9L20.73,21.93L22,20.66L4.27,3M14,3.23V5.29C14.73,5.5 15.43,5.83 16.07,6.26L14.59,7.74C14.41,7.65 14.21,7.58 14,7.54V9.54L19,14.54C19,13.7 19,12.85 19,12C19,7.72 16,4.14 14,3.23M16.5,12C16.5,11.2 16.1,10.5 15.5,10.05L14,11.55V12.45L15.46,13.9C15.48,13.28 16.5,12.62 16.5,12Z" />
+        </svg>
+    </button>
+
+    <!-- Navigation Arrows -->
+    <button id="btn-prev" class="nav-btn nav-btn-left" aria-label="Página Anterior">
+        <svg viewBox="0 0 24 24" width="36" height="36">
+            <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+        </svg>
+    </button>
+    <button id="btn-next" class="nav-btn nav-btn-right" aria-label="Próxima Página">
+        <svg viewBox="0 0 24 24" width="36" height="36">
+            <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+        </svg>
+    </button>
+
+    <!-- Album Container -->
+    <div class="album-viewport" id="album-viewport">
+        <div class="flip-book" id="book">
+
+            <!-- PAGINA 0: CAPA -->
+            <div class="page page-cover" data-density="hard">
+                <div class="page-content cover-content">
+                    <div class="cover-header">
+                        <span class="cover-seal">COLEÇÃO OFICIAL</span>
+                    </div>
+                    <div class="cover-body">
+                        <h1 class="cover-title reflect-glow">MESTRES E</h1>
+                        <div class="lightning-container">
+                            <svg class="lightning-bolt bolt-1" viewBox="0 0 100 20" preserveAspectRatio="none">
+                                <path
+                                    d="M 0,10 L 10,12 L 18,5 L 28,14 L 35,8 L 48,16 L 55,10 L 68,5 L 75,13 L 88,6 L 100,10 M 35,8 L 42,18 L 48,15 M 68,5 L 72,-2 L 80,-5 M 18,5 L 22,-3 L 30,-2" />
+                            </svg>
+                            <svg class="lightning-bolt bolt-2" viewBox="0 0 100 20" preserveAspectRatio="none">
+                                <path
+                                    d="M 0,8 L 12,14 L 20,4 L 30,12 L 40,6 L 52,15 L 62,8 L 70,12 L 82,5 L 90,13 L 100,8 M 30,12 L 35,18 L 45,16 M 62,8 L 68,-2 L 78,-1 M 82,5 L 85,-3 L 95,-2" />
+                            </svg>
+                            <h2 class="cover-subtitle reflect-glow">SEUS INVENTOS</h2>
+                        </div>
+                        <div class="cover-art">
+                            <div class="art-grid"></div>
+
+                            <!-- Floating Mini Cards Silhouette Collage -->
+                            <div class="mini-card mc-turing">
+                                <div class="mc-avatar">AI</div>
+                                <span class="mc-num">#01</span>
+                            </div>
+                            <div class="mini-card mc-guido">
+                                <div class="mc-avatar">PY</div>
+                                <span class="mc-num">#06</span>
+                            </div>
+                            <div class="mini-card mc-jobs">
+                                <div class="mc-avatar">OS</div>
+                                <span class="mc-num">#20</span>
+                            </div>
+
+                            <!-- Central Glowing 3D Tech Sphere -->
+                            <div class="tech-sphere">
+                                <div class="sphere-core">
+                                    <svg class="art-logo" viewBox="0 0 24 24">
+                                        <path d="M12 2L2 22h20L12 2zm0 4l6.5 13h-13L12 6z" />
+                                    </svg>
+                                </div>
+                                <div class="sphere-ring ring-1"></div>
+                                <div class="sphere-ring ring-2"></div>
+                            </div>
+                        </div>
+                        <p class="cover-footer-text">A SELEÇÃO QUE MUDOU O MUNDO</p>
+                    </div>
+                    <div class="cover-footer">
+                        <span>IMERSÃO JULHO 2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGINA 1: FÍSICA CLÁSSICA & COSMOS -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-ia">FÍSICA</span>
+                        <h3 class="page-title">Física Clássica & Cosmos</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot">
+                            <div class="slot-number">#01</div>
+                            <div class="slot-name">Isaac Newton</div>
+                            <div class="slot-role">Fundou a mecânica clássica e a gravitação.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#02</div>
+                            <div class="slot-name">Michael Faraday</div>
+                            <div class="slot-role">Viabilizou motores, geradores e eletrificação.</div>
+                        </div>
+                        <div class="sticker-slot special-slot">
+                            <div class="slot-number">#03</div>
+                            <div class="slot-name">James Clerk Maxwell</div>
+                            <div class="slot-role">Fundamentou eletromagnetismo e telecomunicações.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#04</div>
+                            <div class="slot-name">Albert Einstein</div>
+                            <div class="slot-role">Reformulou espaço, tempo, energia e gravidade.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#05</div>
+                            <div class="slot-name">Stephen Hawking</div>
+                            <div class="slot-role">Avançou a física dos buracos negros e sua divulgação.</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 1</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 2: QUÍMICA & ELEMENTOS -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-db">QUÍMICA</span>
+                        <h3 class="page-title">Química & Elementos</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot">
+                            <div class="slot-number">#06</div>
+                            <div class="slot-name">Fritz Haber</div>
+                            <div class="slot-role">Viabilizou fertilizantes e ampliou a produção agrícola.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#07</div>
+                            <div class="slot-name">Antoine Lavoisier</div>
+                            <div class="slot-role">Estabeleceu as bases quantitativas da química.</div>
+                        </div>
+                        <div class="sticker-slot special-slot">
+                            <div class="slot-number">#08</div>
+                            <div class="slot-name">Dmitri Mendeleev</div>
+                            <div class="slot-role">Organizou os elementos na tabela periódica.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#09</div>
+                            <div class="slot-name">Marie Curie</div>
+                            <div class="slot-role">Avançou a radioatividade e suas aplicações médicas.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#10</div>
+                            <div class="slot-name">John Walker</div>
+                            <div class="slot-role">Popularizou o fósforo de fricção no cotidiano.</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 2</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 3: MATEMÁTICA & ASTRONOMIA -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-brasil">CÁLCULO</span>
+                        <h3 class="page-title">Matemática & Astronomia</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot">
+                            <div class="slot-number">#11</div>
+                            <div class="slot-name">Galileu Galilei</div>
+                            <div class="slot-role">Consolidou a ciência experimental moderna.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#12</div>
+                            <div class="slot-name">Leonardo Fibonacci</div>
+                            <div class="slot-role">Popularizou o sistema numérico indo-arábico.</div>
+                        </div>
+                        <div class="sticker-slot special-slot">
+                            <div class="slot-number">#13</div>
+                            <div class="slot-name">Nicolau Copérnico</div>
+                            <div class="slot-role">Impulsionou o heliocentrismo e a Revolução Científica.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#14</div>
+                            <div class="slot-name">Katherine Johnson</div>
+                            <div class="slot-role">Calculou trajetórias essenciais para missões espaciais.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#15</div>
+                            <div class="slot-name">Eratóstenes</div>
+                            <div class="slot-role">Mediu a Terra e avançou geografia e cartografia.</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 3</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 4: FÍSICA MODERNA & BIOFÍSICA -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-os">QUÂNTICA</span>
+                        <h3 class="page-title">Física Moderna & Biofísica</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot">
+                            <div class="slot-number">#16</div>
+                            <div class="slot-name">Nikola Tesla</div>
+                            <div class="slot-role">Impulsionou corrente alternada e motores elétricos.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#17</div>
+                            <div class="slot-name">Max Planck</div>
+                            <div class="slot-role">Iniciou a física quântica com os quanta of energia.</div>
+                        </div>
+                        <div class="sticker-slot special-slot">
+                            <div class="slot-number">#18</div>
+                            <div class="slot-name">Ernest Rutherford</div>
+                            <div class="slot-role">Descobriu o núcleo atômico e fundou a física nuclear.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#19</div>
+                            <div class="slot-name">Niels Bohr</div>
+                            <div class="slot-role">Avançou o modelo atômico e a teoria quântica.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#20</div>
+                            <div class="slot-name">Rosalind Franklin</div>
+                            <div class="slot-role">Produziu dados essenciais para revelar o DNA.</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 4</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 5: ELETRÔNICA & SEMICONDUTORES -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-python">ELETRÔNICA</span>
+                        <h3 class="page-title">Eletrônica & Semicondutores</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot">
+                            <div class="slot-number">#21</div>
+                            <div class="slot-name">John Bardeen</div>
+                            <div class="slot-role">Criou o transistor que sustenta a eletrônica moderna.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#22</div>
+                            <div class="slot-name">William Shockley</div>
+                            <div class="slot-role">Ajudou a criar o transistor e os semicondutores.</div>
+                        </div>
+                        <div class="sticker-slot special-slot">
+                            <div class="slot-number">#23</div>
+                            <div class="slot-name">Walter Brattain</div>
+                            <div class="slot-role">Construiu experimentalmente o primeiro transistor.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#24</div>
+                            <div class="slot-name">Shuji Nakamura</div>
+                            <div class="slot-role">Viabilizou LEDs azuis e iluminação branca eficiente.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#25</div>
+                            <div class="slot-name">Nick Holonyak</div>
+                            <div class="slot-role">Criou o primeiro LED visível de uso prático.</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 5</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 6: FUNDAMENTOS DA COMPUTAÇÃO -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-web">COMPUTAÇÃO</span>
+                        <h3 class="page-title">Fundamentos da Computação</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot">
+                            <div class="slot-number">#26</div>
+                            <div class="slot-name">Alan Turing</div>
+                            <div class="slot-role">Fundamentou computação e inteligência artificial.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#27</div>
+                            <div class="slot-name">Margaret Hamilton</div>
+                            <div class="slot-role">Consolidou a engenharia de software nas missões Apollo.</div>
+                        </div>
+                        <div class="sticker-slot special-slot">
+                            <div class="slot-number">#28</div>
+                            <div class="slot-name">Ada Lovelace</div>
+                            <div class="slot-role">Antecipou algoritmos e a programação de computadores.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#29</div>
+                            <div class="slot-name">Joseph-Marie Jacquard</div>
+                            <div class="slot-role">Criou automação programável com cartões perfurados.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#30</div>
+                            <div class="slot-name">David Huffman</div>
+                            <div class="slot-role">Criou um método essencial de compressão de dados.</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 6</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 7: INFORMAÇÃO, MENTE & SOCIEDADE -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-lang">SOCIEDADE</span>
+                        <h3 class="page-title">Informação, Mente & Sociedade</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot">
+                            <div class="slot-number">#31</div>
+                            <div class="slot-name">Tim Berners-Lee</div>
+                            <div class="slot-role">Criou a Web e ampliou o acesso à informação.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#32</div>
+                            <div class="slot-name">John Snow</div>
+                            <div class="slot-role">Fundou a epidemiologia moderna com dados e mapas.</div>
+                        </div>
+                        <div class="sticker-slot special-slot slot-brazil">
+                            <div class="slot-number">#33</div>
+                            <div class="slot-name">Carlos Chagas</div>
+                            <div class="slot-role">Descreveu integralmente a doença de Chagas.</div>
+                        </div>
+                        <div class="sticker-slot slot-brazil">
+                            <div class="slot-number">#34</div>
+                            <div class="slot-name">Nise da Silveira</div>
+                            <div class="slot-role">Humanizou a psiquiatria e combateu práticas violentas.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#35</div>
+                            <div class="slot-name">Joseph Weizenbaum</div>
+                            <div class="slot-role">Criou o ELIZA e antecipou debates éticos sobre IA.</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 7</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 8: BIOLOGIA & CIÊNCIAS DA VIDA -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-hardware">BIOLOGIA</span>
+                        <h3 class="page-title">Biologia & Ciências da Vida</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot">
+                            <div class="slot-number">#36</div>
+                            <div class="slot-name">Charles Darwin</div>
+                            <div class="slot-role">Explicou a evolução por seleção natural.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#37</div>
+                            <div class="slot-name">Norman Borlaug</div>
+                            <div class="slot-role">Impulsionou a Revolução Verde contra a fome.</div>
+                        </div>
+                        <div class="sticker-slot special-slot">
+                            <div class="slot-number">#38</div>
+                            <div class="slot-name">Gregor Mendel</div>
+                            <div class="slot-role">Fundamentou a genética e as leis da hereditariedade.</div>
+                        </div>
+                        <div class="sticker-slot slot-brazil">
+                            <div class="slot-number">#39</div>
+                            <div class="slot-name">Johanna Döbereiner</div>
+                            <div class="slot-role">Reduziu fertilizantes com fixação biológica de nitrogênio.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#40</div>
+                            <div class="slot-name">Nikolai Lunin</div>
+                            <div class="slot-role">Antecipou a descoberta das vitaminas essenciais.</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 8</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 9: MICROBIOLOGIA & IMUNOLOGIA -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-security">MICROBIO</span>
+                        <h3 class="page-title">Microbiologia & Imunologia</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot">
+                            <div class="slot-number">#41</div>
+                            <div class="slot-name">Louis Pasteur</div>
+                            <div class="slot-role">Transformou microbiologia, vacinas e higiene.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#42</div>
+                            <div class="slot-name">Alexander Fleming</div>
+                            <div class="slot-role">Abriu a era dos antibióticos com a penicilina.</div>
+                        </div>
+                        <div class="sticker-slot special-slot">
+                            <div class="slot-number">#43</div>
+                            <div class="slot-name">Edward Jenner</div>
+                            <div class="slot-role">Inaugurou a vacinação moderna contra a varíola.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#44</div>
+                            <div class="slot-name">Robert Koch</div>
+                            <div class="slot-role">Relacionou microrganismos específicos a doenças.</div>
+                        </div>
+                        <div class="sticker-slot slot-brazil">
+                            <div class="slot-number">#45</div>
+                            <div class="slot-name">Vital Brazil</div>
+                            <div class="slot-role">Criou soros específicos contra animais peçonhentos.</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 9</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 10: MEDICINA CLÍNICA & VIROLOGIA -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-web">MEDICINA</span>
+                        <h3 class="page-title">Medicina Clínica & Virologia</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot">
+                            <div class="slot-number">#46</div>
+                            <div class="slot-name">Ignaz Semmelweis</div>
+                            <div class="slot-role">Provou que lavar as mãos evita infecções.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#47</div>
+                            <div class="slot-name">Frederick Banting</div>
+                            <div class="slot-role">Tornou o diabetes tratável com a insulina.</div>
+                        </div>
+                        <div class="sticker-slot special-slot">
+                            <div class="slot-number">#48</div>
+                            <div class="slot-name">Jonas Salk</div>
+                            <div class="slot-role">Criou a primeira vacina eficaz contra a poliomielite.</div>
+                        </div>
+                        <div class="sticker-slot slot-brazil">
+                            <div class="slot-number">#49</div>
+                            <div class="slot-name">Albert Sabin</div>
+                            <div class="slot-role">Viabilizou vacinação oral em massa contra a pólio.</div>
+                        </div>
+                        <div class="sticker-slot">
+                            <div class="slot-number">#50</div>
+                            <div class="slot-name">Henrietta Lacks</div>
+                            <div class="slot-role">Suas células HeLa revolucionaram a pesquisa biomédica.</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 10</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 11: CONTRACAPA -->
+            <div class="page page-cover-back" data-density="hard">
+                <div class="page-content cover-back-content">
+                    <div class="cover-back-header">
+                        <h2>MESTRES E SEUS INVENTOS</h2>
+                    </div>
+                    <div class="cover-back-body">
+                        <div class="tech-logo-collage">
+                            <span>IA</span> • <span>PYTHON</span> • <span>BANCOS</span> • <span>SISTEMAS</span> • <span>BRASIL</span> • <span>WEB</span> • <span>DEV</span> • <span>SEGURANÇA</span> • <span>HARDWARE</span>
+                        </div>
+                        <p class="summary-text">
+                            O Alura Album é um tributo interativo à história e evolução do desenvolvimento de software.
+                            Juntando as mentes mais brilhantes nacionais e internacionais que moldam o futuro tech.
+                        </p>
+                        <div class="barcode-container">
+                            <div class="barcode">
+                                <!-- Simulated barcode lines -->
+                                <div class="bar"></div>
+                                <div class="bar thin"></div>
+                                <div class="bar"></div>
+                                <div class="bar thick"></div>
+                                <div class="bar thin"></div>
+                                <div class="bar"></div>
+                                <div class="bar thick"></div>
+                                <div class="bar"></div>
+                                <div class="bar thin"></div>
+                                <div class="bar thick"></div>
+                            </div>
+                            <span class="barcode-number">9 788575 228494</span>
+                        </div>
+                    </div>
+                    <div class="cover-back-footer">
+                        <span>Imersão Julho • Alura • 2026</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Page Flip Library -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+    <!-- Logic -->
+    <script src="app.js"></script>
+</body>
+
+</html>
