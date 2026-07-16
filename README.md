@@ -55,7 +55,7 @@ O projeto está dividido entre uma API no backend e uma aplicação rica baseada
 ### Backend (`/backend`)
 Desenvolvido em **Python** utilizando o framework assíncrono **FastAPI**:
 *   **Static Serving**: Montagem do diretório `/imgs` apontando para `backend/figurinhas/` para servir as imagens físicas das figurinhas coladas de forma rápida e cacheável.
-*   **API `/figurinhas`**: Expõe um endpoint HTTP `GET /figurinhas` que retorna um array de objetos JSON mapeando dados como `id`, `nome`, `categoria`, `imagem_url` e o indicador booleano `brasil` (usado no destaque de cientistas brasileiros).
+*   **API `/figurinhas`**: Expõe um endpoint HTTP `GET /figurinhas` que retorna um array de objetos JSON mapeando dados como `id`, `nome`, `categoria`, `imagem_url`, `descricao` e o indicador booleano `brasil` como última chave (usado no destaque de cientistas brasileiros).
 
 ### Frontend (`/frontend`)
 Construído com tecnologia nativa de navegador (**Vanilla Web Stack**):
@@ -114,58 +114,59 @@ Você pode abrir o frontend de duas maneiras:
 ## 📚 Tabela Geral das 50 Figurinhas
 Aqui está a catalogação completa dos cientistas presentes no álbum, incluindo seu número de slot correspondente, área científica, realização histórica de relevância e se recebem a moldura especial brasileira:
 
-| ID | Personalidade | Área Principal | Razão Principal da Posição / Realização Histórica | Especial Brasil? |
+| ID | Personalidade | Área Principal | Descrição / Realização Histórica | Especial Brasil? |
 | :---: | :--- | :--- | :--- | :---: |
-| **01** | Isaac Newton | Física | Fundou a mecânica clássica e a gravitação universal. | Não |
-| **02** | Michael Faraday | Física | Viabilizou motores, geradores e a eletrificação moderna. | Não |
-| **03** | James Clerk Maxwell | Física | Fundamentou a teoria do eletromagnetismo e telecomunicações. | Não |
-| **04** | Albert Einstein | Física | Reformulou espaço, tempo, energia e gravidade com a relatividade. | Não |
-| **05** | Stephen Hawking | Física (Destaque) | Avançou o estudo de buracos negros e a cosmologia teórica. | Não |
-| **06** | Fritz Haber | Química | Viabilizou fertilizantes sintéticos e ampliou a produção agrícola mundial. | Não |
-| **07** | Antoine Lavoisier | Química | Estabeleceu as bases quantitativas da química moderna. | Não |
-| **08** | Dmitri Mendeleev | Química | Organizou os elementos na tabela periódica de forma preditiva. | Não |
-| **09** | Marie Curie | Química (Destaque) | Pioneira nos estudos sobre a radioatividade e tratamentos médicos. | Não |
-| **10** | John Walker | Química | Desenvolveu o fósforo de fricção, popularizando o fogo seguro e barato. | Não |
-| **11** | Galileu Galilei | Cálculo | Consolidou a ciência experimental moderna e o método científico. | Não |
-| **12** | Leonardo Fibonacci | Cálculo | Introduziu e popularizou o sistema numérico indo-arábico no Ocidente. | Não |
-| **13** | Nicolau Copérnico | Cálculo | Apresentou e estruturou o heliocentrismo, iniciando a revolução científica. | Não |
-| **14** | Katherine Johnson | Cálculo (Destaque) | Computadora humana cujos cálculos viabilizaram as primeiras missões espaciais da NASA. | Não |
-| **15** | Eratóstenes | Cálculo | Mediu a circunferência da Terra com precisão impressionante no mundo antigo. | Não |
-| **16** | Nikola Tesla | Quântica | Projetou o sistema de transmissão por corrente alternada e motores de indução. | Não |
-| **17** | Max Planck | Quântica | Propôs a quantização de energia, fundando a física quântica. | Não |
-| **18** | Ernest Rutherford | Quântica | Descobriu o núcleo atômico e a natureza da radiação alfa e beta. | Não |
-| **19** | Niels Bohr | Quântica | Criou o modelo atômico orbital quântico estável. | Não |
-| **20** | Rosalind Franklin | Quântica (Destaque) | Capturou a famosa Fotografia 51, provando a estrutura de dupla hélice do DNA. | Não |
-| **21** | John Bardeen | Eletrônica (Destaque)| Coinventor do primeiro transistor prático e da teoria da supercondutividade. | Não |
-| **22** | William Shockley | Eletrônica | Cocriador e promotor do transistor e do silício no desenvolvimento de semicondutores. | Não |
-| **23** | Walter Brattain | Eletrônica | Físico que construiu fisicamente o primeiro protótipo operacional de transistor. | Não |
-| **24** | Shuji Nakamura | Eletrônica | Inventou o LED azul de alto brilho, abrindo portas para telas modernas e iluminação eficiente. | Não |
-| **25** | Nick Holonyak | Eletrônica | Criou o primeiro diodo emissor de luz (LED) visível na faixa vermelha. | Não |
-| **26** | Alan Turing | Computação (Destaque)| Pai da ciência da computação e inteligência artificial teórica com a Máquina de Turing. | Não |
-| **27** | Margaret Hamilton | Computação | Diretora de engenharia de software da missão Apollo 11, pioneira da engenharia de software. | Não |
-| **28** | Ada Lovelace | Computação | Escreveu o primeiro algoritmo destinado a ser processado por uma máquina. | Não |
-| **29** | Joseph-Marie Jacquard | Computação | Criou o tear automático operado por cartões perfurados, antecedente da programação. | Não |
-| **30** | David Huffman | Computação | Desenvolveu o algoritmo de codificação Huffman para compressão de dados sem perdas. | Não |
-| **31** | Tim Berners-Lee | Sociedade | Criou o protocolo HTTP e a World Wide Web (WWW). | Não |
-| **32** | John Snow | Sociedade | Identificou o surto de cólera por água em Londres, fundando a epidemiologia. | Não |
-| **33** | Carlos Chagas | Sociedade | Descobriu o ciclo completo da doença de Chagas (agente, vetor e patologia). | **Sim** |
-| **34** | Nise da Silveira | Sociedade (Destaque)| Revolucionou a psiquiatria ao abolir tratamentos cruéis e introduzir terapia ocupacional e arte. | **Sim** |
-| **35** | Joseph Weizenbaum | Sociedade | Criou o chatbot ELIZA e tornou-se um crítico dos perigos éticos da IA. | Não |
-| **36** | Charles Darwin | Biologia (Destaque)| Formulou a teoria da evolução das espécies por meio da seleção natural. | Não |
-| **37** | Norman Borlaug | Biologia | Liderou a Revolução Verde com trigo de alto rendimento, salvando milhões da fome. | Não |
-| **38** | Gregor Mendel | Biologia | Descobriu os mecanismos básicos de herança genética com experiências em ervilhas. | Não |
-| **39** | Johanna Döbereiner | Biologia | Desenvolveu pesquisas em fixação biológica de nitrogênio na soja, poupando bilhões ao país. | **Sim** |
-| **40** | Nikolai Lunin | Biologia | Demonstrou a existência de substâncias acessórias essenciais à vida (futuras vitaminas). | Não |
-| **41** | Louis Pasteur | Microbiologia (Destaque)| Criou a pasteurização, germologia clínica e a vacina contra a raiva. | Não |
-| **42** | Alexander Fleming | Microbiologia | Descobriu acidentalmente a penicilina, inaugurando a era antibiótica. | Não |
-| **43** | Edward Jenner | Microbiologia | Desenvolveu a primeira vacina moderna da história (contra a varíola). | Não |
-| **44** | Robert Koch | Microbiologia | Formulou os postulados de Koch isolando agentes causadores de cólera e tuberculose. | Não |
-| **45** | Vital Brazil | Microbiologia | Descobriu a especificidade de soros antiofídicos e araneídicos e fundou o Instituto Butantan. | **Sim** |
-| **46** | Ignaz Semmelweis | Medicina | Propôs a higienização de mãos de médicos para prevenir febre puerperal, salvando parturientes. | Não |
-| **47** | Frederick Banting | Medicina | Isolou a insulina, tornando o diabetes uma condição de saúde perfeitamente tratável. | Não |
-| **48** | Jonas Salk | Medicina (Destaque) | Desenvolveu a primeira vacina injetável inativada contra a poliomielite. | Não |
-| **49** | Albert Sabin | Medicina | Criou a vacina oral de vírus atenuado contra a pólio, permitindo vacinação em massa. | **Sim** |
-| **50** | Henrietta Lacks | Medicina | Origem involuntária da linhagem celular HeLa, crucial para o desenvolvimento de vacinas e terapias contra o câncer. | Não |
+| **01** | Isaac Newton | Física | Fundou a mecânica clássica e a gravitação. | Não |
+| **02** | Michael Faraday | Física | Viabilizou motores, geradores e eletrificação. | Não |
+| **03** | James Clerk Maxwell | Física | Fundamentou eletromagnetismo e telecomunicações. | Não |
+| **04** | Albert Einstein | Física | Reformulou espaço, tempo, energia e gravidade. | Não |
+| **05** | Stephen Hawking | Física (Destaque) | Avançou a física dos buracos negros e sua divulgação. | Não |
+| **06** | Fritz Haber | Química | Viabilizou fertilizantes e ampliou a produção agrícola. | Não |
+| **07** | Antoine Lavoisier | Química | Estabeleceu as bases quantitativas da química. | Não |
+| **08** | Dmitri Mendeleev | Química | Organizou os elementos na tabela periódica. | Não |
+| **09** | Marie Curie | Química (Destaque) | Avançou a radioatividade e suas aplicações médicas. | Não |
+| **10** | John Walker | Química | Popularizou o fósforo de fricção no cotidiano. | Não |
+| **11** | Galileu Galilei | Cálculo | Consolidou a ciência experimental moderna. | Não |
+| **12** | Leonardo Fibonacci | Cálculo | Popularizou o sistema numérico indo-arábico. | Não |
+| **13** | Nicolau Copérnico | Cálculo | Impulsionou o heliocentrismo e a Revolução Científica. | Não |
+| **14** | Katherine Johnson | Cálculo (Destaque) | Calculou trajetórias essenciais para missões espaciais. | Não |
+| **15** | Eratóstenes | Cálculo | Mediu a Terra e avançou geografia e cartografia. | Não |
+| **16** | Nikola Tesla | Quântica | Impulsionou corrente alternada e motores elétricos. | Não |
+| **17** | Max Planck | Quântica | Iniciou a física quântica com os quanta of energia. | Não |
+| **18** | Ernest Rutherford | Quântica | Descobriu o núcleo atômico e fundou a física nuclear. | Não |
+| **19** | Niels Bohr | Quântica | Avançou o modelo atômico e a teoria quântica. | Não |
+| **20** | Rosalind Franklin | Quântica (Destaque) | Produziu dados essenciais para revelar o DNA. | Não |
+| **21** | John Bardeen | Eletrônica (Destaque)| Criou o transistor que sustenta a eletrônica moderna. | Não |
+| **22** | William Shockley | Eletrônica | Ajudou a criar o transistor e os semicondutores. | Não |
+| **23** | Walter Brattain | Eletrônica | Construiu experimentalmente o primeiro transistor. | Não |
+| **24** | Shuji Nakamura | Eletrônica | Viabilizou LEDs azuis e iluminação branca eficiente. | Não |
+| **25** | Nick Holonyak | Eletrônica | Criou o primeiro LED visível de uso prático. | Não |
+| **26** | Alan Turing | Computação (Destaque)| Fundamentou computação e inteligência artificial. | Não |
+| **27** | Margaret Hamilton | Computação | Consolidou a engenharia de software nas missões Apollo. | Não |
+| **28** | Ada Lovelace | Computação | Antecipou algoritmos e a programação de computadores. | Não |
+| **29** | Joseph-Marie Jacquard | Computação | Criou automação programável com cartões perfurados. | Não |
+| **30** | David Huffman | Computação | Criou um método essencial de compressão de dados. | Não |
+| **31** | Tim Berners-Lee | Sociedade | Criou a Web e ampliou o acesso à informação. | Não |
+| **32** | John Snow | Sociedade | Fundou a epidemiologia moderna com dados e mapas. | Não |
+| **33** | Carlos Chagas | Sociedade | Descreveu integralmente a doença de Chagas. | **Sim** |
+| **34** | Nise da Silveira | Sociedade (Destaque)| Humanizou a psiquiatria e combateu práticas violentas. | **Sim** |
+| **35** | Joseph Weizenbaum | Sociedade | Criou o ELIZA e antecipou debates éticos sobre IA. | Não |
+| **36** | Charles Darwin | Biologia (Destaque)| Explicou a evolução por seleção natural. | Não |
+| **37** | Norman Borlaug | Biologia | Impulsionou a Revolução Verde contra a fome. | Não |
+| **38** | Gregor Mendel | Biologia | Fundamentou a genética e as leis da hereditariedade. | Não |
+| **39** | Johanna Döbereiner | Biologia | Reduziu fertilizantes com fixação biológica de nitrogênio. | **Sim** |
+| **40** | Nikolai Lunin | Biologia | Antecipou a descoberta das vitaminas essenciais. | Não |
+| **41** | Louis Pasteur | Microbiologia (Destaque)| Transformou microbiologia, vacinas e higiene. | Não |
+| **42** | Alexander Fleming | Microbiologia | Abriu a era dos antibióticos com a penicilina. | Não |
+| **43** | Edward Jenner | Microbiologia | Inaugurou a vacinação moderna contra a varíola. | Não |
+| **44** | Robert Koch | Microbiologia | Relacionou microrganismos específicos a doenças. | Não |
+| **45** | Vital Brazil | Microbiologia | Criou soros específicos contra animais peçonhentos. | **Sim** |
+| **46** | Ignaz Semmelweis | Medicina | Provou que lavar as mãos evita infecções. | Não |
+| **47** | Frederick Banting | Medicina | Tornou o diabetes tratável com a insulina. | Não |
+| **48** | Jonas Salk | Medicina (Destaque) | Criou a primeira vacina eficaz contra a poliomielite. | Não |
+| **49** | Albert Sabin | Medicina | Viabilizou vacinação oral em massa contra a pólio. | **Sim** |
+| **50** | Henrietta Lacks | Medicina | Suas células HeLa revolucionaram a pesquisa biomédica. | Não |
+
 
 ---
 
