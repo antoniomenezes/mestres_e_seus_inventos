@@ -1,0 +1,14 @@
+FOTOS DAS PERSONALIDADES DA TABELA
+
+Este diretório contém 50 imagens, identificadas pelo número e pelo nome da personalidade na tabela original.
+
+Padrão dos arquivos:
+  01_Isaac_Newton.jpg
+  ...
+  50_Joseph_Weizenbaum.jpg
+
+As imagens foram redimensionadas apenas quando necessário, mantendo a proporção e sem recorte.
+O arquivo indice_fontes.csv informa a página de origem e a URL de cada imagem.
+
+IMPORTANTE SOBRE DIREITOS DE USO:
+A maior parte das imagens vem da Wikimedia/Wikipedia, mas cada arquivo pode ter uma licença específica. Consulte a página de origem antes de publicar, imprimir ou redistribuir. A foto de David Huffman vem da UC Santa Cruz e é creditada a Don Harris na página de origem.

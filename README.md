@@ -53,9 +53,12 @@ O álbum é composto por 12 páginas no total (Capa + 10 Páginas Internas Temá
 O projeto está dividido entre uma API no backend e uma aplicação rica baseada no frontend:
 
 ### Backend (`/backend`)
-Desenvolvido em **Python** utilizando o framework assíncrono **FastAPI**:
+Desenvolvido em **Python** utilizando o framework assíncrono **FastAPI** e banco de dados relacional **SQLite**:
+*   **Banco de Dados SQLite (`banco_album.sqlite`)**: Armazena as figurinhas de forma persistente com os campos `id` (INTEGER PRIMARY KEY), `nome` (TEXT), `categoria` (TEXT), `imagem_url` (TEXT), `descricao` (TEXT) e `brasil` (INTEGER).
+*   **Script de Inicialização (`criar_banco.py`)**: Script utilizado para criar a tabela e popular o banco de dados inicial a partir da lista estática do código.
+*   **API `/figurinhas`**: Expõe um endpoint HTTP `GET /figurinhas` que retorna a lista de figurinhas em memória (hardcoded).
+*   **API `/figs`**: Expõe o endpoint HTTP `GET /figs` que busca dinamicamente as figurinhas a partir do banco de dados SQLite, convertendo os campos necessários e ordenando os resultados por ID.
 *   **Static Serving**: Montagem do diretório `/imgs` apontando para `backend/figurinhas/` para servir as imagens físicas das figurinhas coladas de forma rápida e cacheável.
-*   **API `/figurinhas`**: Expõe um endpoint HTTP `GET /figurinhas` que retorna um array de objetos JSON mapeando dados como `id`, `nome`, `categoria`, `imagem_url`, `descricao` e o indicador booleano `brasil` como última chave (usado no destaque de cientistas brasileiros).
 
 ### Frontend (`/frontend`)
 Construído com tecnologia nativa de navegador (**Vanilla Web Stack**):
@@ -94,11 +97,15 @@ Construído com tecnologia nativa de navegador (**Vanilla Web Stack**):
    ```bash
    pip install fastapi uvicorn
    ```
-4. Inicie o servidor:
+4. Inicialize e popule o banco de dados SQLite:
+   ```bash
+   python criar_banco.py
+   ```
+5. Inicie o servidor:
    ```bash
    uvicorn main:app --reload
    ```
-   *O backend ficará ativo por padrão em [http://localhost:8000](http://localhost:8000).*
+   *O backend ficará ativo por padrão em [http://localhost:8000](http://localhost:8000). O endpoint `/figurinhas` retornará os dados em memória e o endpoint `/figs` retornará os dados vindos do banco SQLite.*
 
 ### 2. Inicializar o Álbum Digital (Frontend)
 Você pode abrir o frontend de duas maneiras:

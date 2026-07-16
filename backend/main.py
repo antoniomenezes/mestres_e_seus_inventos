@@ -4,6 +4,8 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 # Importa o módulo os para manipulação de caminhos de arquivos
 import os
+# Importa o módulo sqlite3 para conexão com o banco de dados
+import sqlite3
 
 # Cria uma instância da aplicação FastAPI
 app = FastAPI()
@@ -11,6 +13,8 @@ app = FastAPI()
 # Define o caminho absoluto da pasta de imagens (para encontrar a pasta independentemente de onde o código for executado)
 PASTA_BASE = os.path.dirname(os.path.abspath(__file__))
 PASTA_IMAGENS = os.path.join(PASTA_BASE, "figurinhas")
+# Define o caminho para o banco de dados SQLite
+DB_PATH = os.path.join(PASTA_BASE, "banco_album.sqlite")
 
 # Configura e monta o diretório de arquivos estáticos na rota "/imgs"
 app.mount("/imgs", StaticFiles(directory=PASTA_IMAGENS), name="imgs")
@@ -75,3 +79,26 @@ figurinhas = [
 def listar_figurinhas():
     # Retorna a lista de figurinhas
     return figurinhas
+
+# Define um endpoint alternativo "/figs" que recupera as figurinhas do banco de dados SQLite
+@app.get("/figs")
+def listar_figurinhas_banco():
+    # Conecta ao banco de dados SQLite
+    conn = sqlite3.connect(DB_PATH)
+    # Define a row factory para podermos acessar os dados como dicionário
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+    
+    # Seleciona todas as figurinhas da tabela correspondente
+    cursor.execute("SELECT * FROM figurinhas ORDER BY id ASC")
+    rows = cursor.fetchall()
+    
+    # Formata a lista convertendo Row em dicionário e normalizando o campo boolean 'brasil'
+    figurinhas_db = []
+    for row in rows:
+        fig = dict(row)
+        fig["brasil"] = bool(fig["brasil"])
+        figurinhas_db.append(fig)
+        
+    conn.close()
+    return figurinhas_db
