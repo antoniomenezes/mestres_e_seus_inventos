@@ -15,6 +15,11 @@
   --color-slot-border: rgba(217, 70, 239, 0.2);
   --color-slot-number-bg: rgba(217, 70, 239, 0.08);
   --color-slot-number-text: #F472B6;
+
+  /* Cores mais claras para o background do app */
+  --color-app-bg-center: #251c4f;
+  --color-app-bg-mid: #13102b;
+  --color-app-bg-edge: #0a0817;
 }
 
 * {
@@ -24,8 +29,11 @@
 }
 
 body {
-  background-color: var(--color-new-black);
-  background-image: radial-gradient(circle at center, var(--color-deep-blue) 0%, var(--color-blue-universe) 60%, var(--color-new-black) 100%);
+  background-color: var(--color-app-bg-edge);
+  background-image: url('assets/images/bottom_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--color-new-black);
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
@@ -117,7 +125,7 @@ body {
   box-shadow: 0 35px 80px rgba(0, 0, 0, 0.7);
   border-radius: 8px;
   overflow: hidden;
-  background-color: transparent;
+  background-color: #070709;
   display: none; /* Shown after initialization */
 }
 
